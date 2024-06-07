@@ -1,11 +1,13 @@
 import { useState } from "react";
 
-const Login = () => {
-  const [data, setData] = useState({
+const Login = ({ onLogin }) => {
+  const initialState = {
     username: "",
     password: "",
     remember: false,
-  });
+  };
+
+  const [data, setData] = useState(initialState);
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
@@ -17,10 +19,13 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Username:", data.username);
-    console.log("Password:", data.password);
-    console.log("Remember me:", data.remember);
+    onLogin(data);
   };
+  const handleReset = () => {
+    setData(initialState);
+  };
+
+  const isFormValid = data.username && data.password;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -57,7 +62,12 @@ const Login = () => {
           />
         </label>
       </div>
-      <button type="submit">Login</button>
+      <button type="submit" disabled={!isFormValid}>
+        Login
+      </button>
+      <button type="button" onClick={handleReset}>
+        Reset
+      </button>
     </form>
   );
 };

@@ -3,14 +3,17 @@ import "./App.css";
 import InteractiveWelcome from "./InteractiveWelcome";
 import Login from "./Login";
 
-function App() {
+const App = () => {
+  const handleLogin = (data) => {
+    console.log("Login data:", data);
+  };
   return (
     <>
       <InteractiveWelcome />
       <h2> Effettua il login</h2>
-      <Login />
+      <Login onLogin={handleLogin} />
     </>
   );
-}
+};
 
 export default App;
