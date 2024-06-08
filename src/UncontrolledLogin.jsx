@@ -25,4 +25,4 @@ export function UncontrolledLogin() {
   );
 }
 
-// I vantaggi di un uncontrolled form rispetto ad un controlled potrebbero essere relativi ad una maggiore semplicità di codice, a scapito di meno controllo
+// I vantaggi potrebbero essere relativi ad una maggiore semplicità di codice, a scapito di meno controllo
