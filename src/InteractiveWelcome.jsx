@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Welcome from "./Welcome";
+import "./index.css";
 export default function interactiveWelcome() {
   const [name, setName] = useState("");
 
